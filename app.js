@@ -10,7 +10,7 @@ var express = require('express'),
 //require route module for routes
 var index = require('./routes/index'),
     albums = require('./routes/albums'),
-    user = require('./routes/user');
+    users = require('./routes/users');
 
 //create app instance to store info for express app
 var app = express();
@@ -49,7 +49,7 @@ app.use('/', index);
 //register albums route as middleware for app
 //prepath is /albums
 app.use('/albums', albums);
-app.use('/user', user);
+app.use('/users', users);
 
 //predefined path "/users/" imported from users.js as middleware
 // app.use('/users', users);
