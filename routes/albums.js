@@ -44,7 +44,7 @@ router.put("/edit/:id", function(req, res) {
 
 	//database
 	Albums.set(albums);
-	res.json(200).end();
+	res.send(200).end();
 });
 
 router.delete("/delete/:id", function(req, res) {

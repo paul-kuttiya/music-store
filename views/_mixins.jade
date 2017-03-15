@@ -12,6 +12,6 @@ mixin javascript_include_albumView(src, ...rest)
 		script(type="text/javascript" src="/javascripts/views/album/#{file}.js")
 
 mixin javascript_include_userView(src, ...rest)
-	script(type="text/javascript" src="/javascripts/views/user/#{src}.js")
+	script(type="text/javascript" src="/javascripts/views/users/#{src}.js")
 	each file in rest
-		script(type="text/javascript" src="/javascripts/views/user/#{file}.js")			
+		script(type="text/javascript" src="/javascripts/views/users/#{file}.js")

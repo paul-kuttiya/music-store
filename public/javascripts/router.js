@@ -2,8 +2,8 @@ var AlbumRouter = new (Backbone.Router.extend({
   routes: {
     "albums/new": App.newAlbum,
     "albums/edit/:id": App.editAlbum,
-    "user/signup": User.signup,
-    "user/login": User.login,
+    "users/signup": User.signup,
+    "users/login": User.login,
   },
   index: function() {
     App.indexView();
