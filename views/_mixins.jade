@@ -1,0 +1,17 @@
+mixin stylesheet_link(src)
+	link(rel="stylesheet" href="/stylesheets/#{src}.css")
+
+mixin javascript_include(src, ...rest)
+	script(type="text/javascript" src="/javascripts/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/#{file}.js")
+
+mixin javascript_include_albumView(src, ...rest)
+	script(type="text/javascript" src="/javascripts/views/album/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/views/album/#{file}.js")
+
+mixin javascript_include_userView(src, ...rest)
+	script(type="text/javascript" src="/javascripts/views/user/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/views/user/#{file}.js")			

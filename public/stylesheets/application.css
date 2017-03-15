@@ -1,0 +1,164 @@
+@import "whitespace-reset.css";
+form {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+form h3 {
+  margin: 0 0 20px 0;
+}
+form fieldset {
+  padding: 0 0 20px 0;
+}
+form dt {
+  padding: 0 0 5px 0;
+  color: #f67777;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: left;
+}
+form dd {
+  padding: 0 0 10px 0;
+}
+form dd input {
+  font: normal 14px 'Oxygen', sans-serif;
+  font-size: 1em;
+  box-sizing: border-box;
+  height: 30px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 5px 8px;
+  border: 1px solid #888;
+}
+form fieldset.actions a.button {
+  color: #fff;
+  background-color: #f67777;
+  padding: 5px 15px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 1px 1px #f67777;
+  margin: 0 10px 0 0;
+}
+form fieldset.actions a.button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  -webkit-filter: brightness(85%);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font: normal 14px 'Oxygen', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+#header #logo {
+  position: absolute;
+  left: 10%;
+}
+#header .header-links {
+  margin: 0 0 0 30%;
+}
+#header .header-links li {
+  float: left;
+}
+#header .header-icons {
+  margin: 0 10% 0 0;
+}
+#header .header-icons li,
+#header .header-icons #cart {
+  float: right;
+}
+#header nav#top,
+#header nav#bottom {
+  overflow: hidden;
+}
+#header nav#top {
+  background: #333;
+}
+#header nav#top a {
+  color: #fff;
+  display: block;
+  padding: 10px;
+}
+#header nav#top a:hover {
+  color: #f67777;
+}
+#header nav#bottom {
+  border-bottom: 1px solid #e3e3e3;
+}
+#header nav#bottom a {
+  color: #333;
+  display: block;
+  padding: 20px 10px;
+  border-right: 1px solid #e3e3e3;
+}
+#header nav#bottom a:hover {
+  color: #fff;
+  background: #f67777;
+}
+#header nav#bottom #cart a {
+  border: none;
+}
+main {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+main h1 {
+  font-size: 3em;
+  padding: 10px;
+}
+main h1 + span {
+  width: 200px;
+  height: 2px;
+  display: block;
+  background: #f67777;
+  margin: 0 auto 1em auto;
+}
+main p+img {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 5px 0;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+main p+img:hover {
+  transform: scale(1.05);
+  -webkit-filter: brightness(25%);
+}
+main li {
+  position: relative;
+  font-size: 0.9em;
+  display: inline-block;
+  vertical-align: top;
+  min-height: 300px;
+  width: 20%;
+  padding: 10px 20px 20px 20px;
+  margin: 15px;
+  border: 1px solid #e3e3e3;
+}
+main li *:not(img) {
+  padding: 2px;
+}
+main li p:first-of-type {
+  font-weight: bold;
+  color: #f67777;
+}
+main li a.button {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  transition: all 0.2s ease-in-out;
+}
+main li a.button img {
+  width: 25px;
+  height: 25px;
+}
+main li a.button:hover {
+  transform: scale(1.2);
+  -webkit-filter: brightness(80%);
+}

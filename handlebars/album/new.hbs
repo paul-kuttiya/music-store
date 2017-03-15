@@ -1,0 +1,41 @@
+<h1>Add Album</h1>
+<form action="/albums" method="post">
+  <fieldset>
+    <dl>
+      <dt>
+        <label for="date">Date</label>
+      </dt>
+      <dd>
+        <input id="date" name="date" type="date"/>
+      </dd>
+      <dt>
+        <label for="cover">Cover</label>
+      </dt>
+      <dd>
+        <input id="cover" name="cover" type="url" placeholder="cover link"/>
+      </dd>
+      <dt>
+        <label for="name">Artist</label>
+      </dt>
+      <dd>
+        <input id="name" name="name" type="text" placeholder="artist name"/>
+      </dd>
+      <dt>
+        <label for="title">Title</label>
+      </dt>
+      <dd>
+        <input id="title" name="title" type="text" placeholder="album title"/>
+      </dd>
+      <dt>
+        <label for="price">Price</label>
+      </dt>
+      <dd>
+        <input id="price" name="price" type="text" placeholder="album price"/>
+      </dd>
+    </dl>
+  </fieldset>
+  <fieldset class="actions">
+    <a href="/" class="button" id="submit">Create</a>
+    <a href="/" class="button" id="cancel">Cancel</a>
+  </fieldset>
+</form>

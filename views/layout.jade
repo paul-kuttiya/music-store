@@ -1,0 +1,26 @@
+include /_mixins
+
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen")
+    +stylesheet_link("application")
+    +javascript_include("vendor/all")
+    +javascript_include("handlebars_templates")
+  body
+    include nav
+    main
+      block content
+    include footer
+
+    +javascript_include("application")
+    +javascript_include("models/album")
+    +javascript_include("collections/albums")
+    +javascript_include("views/index")
+    +javascript_include_albumView("album", "new", "edit")
+    +javascript_include_userView("signup", "login")
+    script(type="text/javascript").
+      App.albums = new Albums(!{JSON.stringify(albums)});
+    +javascript_include("router")
+    block script

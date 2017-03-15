@@ -1,0 +1,27 @@
+<h1>Log in</h1>
+<form action="/login" method="post">
+  <fieldset>
+    <dl>
+      <dt>
+        <label for="username">Username</label>
+      </dt>
+      <dd>
+        <input id="username" type="text" name="username" placeholder="Username">
+      </dd>
+      <dt>
+        <label for="password">Password</label>
+      </dt>
+      <dd>
+        <input id="password" type="text" name="password" placeholder="Password">
+      </dd>
+    </dl>
+  </fieldset>
+  <fieldset class="actions">
+    <a href="/" class="button" id="login">Login</a>
+    <a href="/" class="button" id="cancel">Cancel</a>
+  </fieldset>
+  <h3>Have no account?</h3>
+  <fieldset class="actions">
+    <a href="/user/login" class="button" id="register">Register</a> 
+  </fieldset>    
+</form>

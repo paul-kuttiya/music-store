@@ -1,0 +1,96 @@
+@import "whitespace-reset.css"
+@import "mixins"
+@import "form"
+
+*
+	box-sizing: border-box
+body
+	font-style()
+a
+	text-decoration: none
+#header
+	#logo
+		position: absolute
+		left: 10%
+	.header-links
+		margin: 0 0 0 30%
+		li
+			float: left
+	.header-icons
+		margin: 0 10% 0 0
+		li, #cart
+			float: right
+	nav#top,
+	nav#bottom
+		overflow: hidden
+	nav#top
+		background: colors.black
+		a
+			color: colors.white
+			display: block
+			padding: 10px
+			&:hover
+				color: colors.red
+	nav#bottom
+		border-bottom: 1px solid colors.border
+		a
+			color: colors.black
+			display: block
+			padding: 20px 10px
+			border-right: 1px solid colors.border
+			&:hover
+				color: colors.white
+				background: colors.red	
+		#cart a
+			border: none
+
+main
+	text-align: center
+	width: 90%
+	margin: 0 auto
+	padding: 20px
+	h1
+		font-size: 3em
+		padding: 10px
+		+ span
+			width: 200px
+			height: 2px
+			display: block
+			background: colors.red
+			margin: 0 auto 1em auto;
+	p+img
+		display: block
+		width: 100%
+		padding: 0
+		margin: 5px 0
+		border-radius: 3px
+		transition: all .2s ease-in-out;
+		&:hover
+			transform: scale(1.05)
+			-webkit-filter: brightness(25%)
+	li
+		position: relative
+		font-size: 0.9em
+		display: inline-block
+		vertical-align: top
+		min-height: 300px
+		width: 20%
+		padding: 10px 20px 20px 20px
+		margin: 15px
+		border: 1px solid colors.border
+		*:not(img)
+			padding: 2px
+		p:first-of-type
+			font-weight: bold
+			color: colors.red
+		a.button
+			position: absolute
+			right: 5px
+			bottom: 5px
+			transition: all .2s ease-in-out;
+			img
+				width: 25px
+				height: 25px
+			&:hover
+				transform: scale(1.2)
+				-webkit-filter: brightness(80%)
