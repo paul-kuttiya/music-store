@@ -4,6 +4,7 @@ var App = {
   templates: JST,
   indexView: function() {
     this.IndexView = new IndexView();
+
     //render first load
     this.renderAlbum();
     this.bindEvents();
@@ -41,6 +42,7 @@ var App = {
 };
 
 var User = {
+  $el: $('nav#top ul.header-links'),
   signup: function() {
     new SignupView();
   },

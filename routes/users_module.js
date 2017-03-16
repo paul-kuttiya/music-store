@@ -15,11 +15,11 @@ var path = require('path'),
 		 data.push(user);
 		 fs.writeFileSync(file_path, JSON.stringify(data));
 	 },
-   checkUser: function(new_user) {
+   findUser: function(new_user) {
      var user_data = this.getUsers(), 
 		 		 user;
 		
-     user = _(user_data).findWhere({ email: new_user.email });
+     user = _(user_data).findWhere({ username: new_user.username });
      
 		 return user;
    },

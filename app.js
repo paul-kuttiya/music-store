@@ -41,6 +41,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(function (req, res, next) {
+  // check if client sent cookie
+  var cookie = req.cookies.user;
+
+  if (cookie === undefined) {
+    // no: set a new cookie
+    res.cookie('user', '', { maxAge: 518400000, httpOnly: true });
+  }
+
+  next();
+});
+
 //find static path for html and css at public folder
 app.use(express.static(path.join(__dirname, 'public')));
 

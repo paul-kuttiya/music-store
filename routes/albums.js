@@ -5,7 +5,7 @@ var router = require('express').Router(),
 router.get('/new', function(req, res) {
 	//set for refresh & add collection for browser 'back' button
 	//to render indexView
-	res.render('form', {albums: Albums.get()});
+	res.render('index', {albums: Albums.get()});
 });
 
 router.get('/', function(req, res) {
@@ -26,7 +26,7 @@ router.post("/", function(req, res) {
 //edit
 router.get("/edit/:id", function(req, res) {
 	var edit_model = _.findWhere(Albums.get(), { id: req.params.id });
-	res.render('form', {albums: Albums.get()});
+	res.render('index', {albums: Albums.get()});
 });
 
 router.put("/edit/:id", function(req, res) {

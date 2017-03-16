@@ -15,11 +15,11 @@ html
     include footer
 
     +javascript_include("application")
-    +javascript_include("models/album")
+    +javascript_include_models("album", "user")
     +javascript_include("collections/albums")
     +javascript_include("views/index")
     +javascript_include_albumView("album", "new", "edit")
-    +javascript_include_userView("signup", "login")
+    +javascript_include_userView("signup", "login", "user")
     script(type="text/javascript").
       App.albums = new Albums(!{JSON.stringify(albums)});
     +javascript_include("router")

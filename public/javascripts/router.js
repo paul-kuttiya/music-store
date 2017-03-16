@@ -7,7 +7,9 @@ var router = new (Backbone.Router.extend({
   },
   index: function() {
     App.indexView();
-    this.navigate("/", { trigger: true })
+  },
+  path: function(path) {
+    this.navigate(path, {trigger: true});
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index);

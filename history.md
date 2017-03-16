@@ -11,8 +11,15 @@ Backend: @ routes/users.js
 		-Require path and fs for finding data path.
 		-Create get and set user
 	*Create response to front-end signup view ajax event.
-		-Verification using users_module
+		-User module
+		-Verification user sign in
 		-Modify Backbone route to render index view if verification succeed.
 
 03/16/2017
-*Add backbone route condition		
+*Add npm node local storage dependencies -S
+*Add signup require only username and password
+*Revise sign up anchor tag to "#"
+*Revise Backbone route for signup tag
+*Add Backbone route navigate to index
+*Render nav bar to contain username when sign up
+	-Fix Express router render all route with index page

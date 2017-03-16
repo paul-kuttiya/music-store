@@ -15,10 +15,11 @@ var SignupView = Backbone.View.extend({
       type: $f.attr('method'),
       data: userInfo,
       success: function(json) {
-        router.index();
+        var model = new UserModel(json);
 
-        //set storage
-        
+        new UserView({model: model});
+
+        router.path("/");
       },
       error: function() {
         //flash

@@ -53,5 +53,19 @@ this["JST"]["user/login"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main
 },"useData":true});
 
 this["JST"]["user/signup"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Sign Up</h1><form action=\"/users/signup\" method=\"post\"><fieldset><dl><dt><label for=\"email\">Email</label></dt><dd><input id=\"email\" type=\"email\" name=\"email\" placeholder=\"Email\"></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"text\" name=\"password\" placeholder=\"Password\"></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"#\" class=\"button\" id=\"signup\">Sign Up</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Already have an account?</h3><fieldset class=\"actions\"><a href=\"/users/login\" class=\"button\" id=\"login\">Login</a> </fieldset></form>";
+    return "<h1>Sign Up</h1><form action=\"/users/signup\" method=\"post\"><fieldset><dl><dt><label for=\"username\">Username</label></dt><dd><input id=\"username\" type=\"text\" name=\"username\" placeholder=\"Username\"></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"text\" name=\"password\" placeholder=\"Password\"></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"#\" class=\"button\" id=\"signup\">Sign Up</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Already have an account?</h3><fieldset class=\"actions\"><a href=\"/users/login\" class=\"button\" id=\"login\">Login</a> </fieldset></form>";
+},"useData":true});
+
+this["JST"]["user/user"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<li><a href=\"#\">Hi, "
+    + container.escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"username","hash":{},"data":data}) : helper)))
+    + "</a></li><li><a href=\"/users/logout\">Log Out</a></li>";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "<li><a href=\"/users/login\">Login</a></li><li><a href=\"/users/signup\">Sign Up</a></li>";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.username : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});

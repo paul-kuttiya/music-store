@@ -15,3 +15,8 @@ mixin javascript_include_userView(src, ...rest)
 	script(type="text/javascript" src="/javascripts/views/users/#{src}.js")
 	each file in rest
 		script(type="text/javascript" src="/javascripts/views/users/#{file}.js")
+
+mixin javascript_include_models(src, ...rest)
+	script(type="text/javascript" src="/javascripts/models/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/models/#{file}.js")		

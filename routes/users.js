@@ -6,30 +6,24 @@ var router = require('express').Router(),
 
 //fix back navigation rendering
 router.get(['/signup', '/login'], function(req, res) {
-  res.render('form', { albums: Albums.get() });
+  res.render('index', { albums: Albums.get() });
 });
 
 router.post('/signup', function(req, res, next) {
 	var user = {
 				id: uuid.v4(),
-				email: req.body.email,
+				username: req.body.username,
 				password: req.body.password,
 			};
 
-	// if (Users.checkUser(user) === false) {
-	// 	res.send("not valid user");
-	// } else if (Users.checkUser(user) === true) {
-	// 	Users.writeTofile(user);
-	// 	res.send(200);
-	// };
-
-	if (Users.checkUser(user)) {
-		res.status(500).send("invalid user").end();
+	if (Users.findUser(user)) {
+		res.status(500).send("Username already used").end();
 		next();
 	}
 
+	res.locals.username = user.username;
 	Users.writeTofile(user);
-	res.send(user.email);
+	res.json({username: user.username});
 	
 
 	// if (!Users.setUser(user)) {
