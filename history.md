@@ -13,3 +13,6 @@ Backend: @ routes/users.js
 	*Create response to front-end signup view ajax event.
 		-Verification using users_module
 		-Modify Backbone route to render index view if verification succeed.
+
+03/16/2017
+*Add backbone route condition		

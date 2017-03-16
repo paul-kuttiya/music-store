@@ -6,7 +6,7 @@ var SignupView = Backbone.View.extend({
   events: {
     "click a#signup": "signup",
   },
-  signup: function() {
+  signup: function(e) {
     var $f = this.$('form'),
         userInfo = $f.serialize();  
   
@@ -15,8 +15,13 @@ var SignupView = Backbone.View.extend({
       type: $f.attr('method'),
       data: userInfo,
       success: function(json) {
-        // App.indexView();
-        console.log(json);
+        router.index();
+
+        //set storage
+        
+      },
+      error: function() {
+        //flash
       },
     });
   },

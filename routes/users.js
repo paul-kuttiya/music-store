@@ -24,7 +24,7 @@ router.post('/signup', function(req, res, next) {
 	// };
 
 	if (Users.checkUser(user)) {
-		res.send("invalid user").end();
+		res.status(500).send("invalid user").end();
 		next();
 	}
 
