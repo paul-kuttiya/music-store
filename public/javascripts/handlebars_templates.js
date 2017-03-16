@@ -3,9 +3,9 @@ this["JST"] = this["JST"] || {};
 this["JST"]["album/album"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<a id=\"edit\" data-type=\"edit\" href=\"/albums/edit/"
+  return "<a href=\"/albums/edit/"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">edit</a><a id=\"delete\" data-type=\"delete\" data-target=\"/albums/delete/"
+    + "\" id=\"edit\" data-type=\"edit\">edit</a><a href=\"#\" id=\"delete\" data-type=\"delete\" data-target=\"/albums/delete/"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">delete</a><p>"
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
@@ -61,7 +61,7 @@ this["JST"]["user/user"] = Handlebars.template({"1":function(container,depth0,he
 
   return "<li><a href=\"#\">Hi, "
     + container.escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"username","hash":{},"data":data}) : helper)))
-    + "</a></li><li><a href=\"/users/logout\">Log Out</a></li>";
+    + "</a></li><li><a id=\"logout\" href=\"#\" data-type=\"post\" data-target=\"/users/logout\">Log Out</a></li>";
 },"3":function(container,depth0,helpers,partials,data) {
     return "<li><a href=\"/users/login\">Login</a></li><li><a href=\"/users/signup\">Sign Up</a></li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

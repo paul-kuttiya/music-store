@@ -22,5 +22,6 @@ html
     +javascript_include_userView("signup", "login", "user")
     script(type="text/javascript").
       App.albums = new Albums(!{JSON.stringify(albums)});
+      App.user = new UserModel(!{(user)});
     +javascript_include("router")
     block script

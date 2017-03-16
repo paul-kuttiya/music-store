@@ -27,3 +27,9 @@ $(document).on('click', "a[href^='/']", function(e) {
 $(document).on('click', "a[href^='#']", function(e) {
   e.preventDefault();
 });
+
+$(window).on('load', function() {
+
+  App.user.trigger("page_refresh")
+
+});

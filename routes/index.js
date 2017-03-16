@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     Albums = require('./albums_module');
+
 // var fs = require('fs'),
 //     path = require('path');
 
@@ -12,9 +13,19 @@ var express = require('express'),
 //   return JSON.parse(albums).data;
 // };
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { albums: Albums.get() });
+  // if (req.session.user) {
+  //   var user = req.session.user;
+  // }
+  var user;
+  if (localStorage.getItem("user")) {
+    user = localStorage.getItem("user");
+  };
+
+  console.log(user)
+  res.render('index', { albums: Albums.get(), user: user });
 });
 
 module.exports = router;

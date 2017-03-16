@@ -4,10 +4,16 @@ var App = {
   templates: JST,
   indexView: function() {
     this.IndexView = new IndexView();
-
+    this.renderUserView();
+    // if (!!this.user) {
+    //   this.renderUserView();
+    // }
     //render first load
     this.renderAlbum();
     this.bindEvents();
+  },
+  renderUserView: function() {
+    new UserView({model: this.user});
   },
   renderAlbum: function() {
     //this.albums = albums from Express get from data
@@ -25,6 +31,8 @@ var App = {
     this.listenTo(this.albums, "edit_album", this.editAlbum);
     //listens to albums collection events then re-render;
     this.listenTo(this.albums, "change update", this.indexView);
+    this.listenTo(this.user, "change", this.renderUserView);
+    this.listenTo(this.user, "page_refresh", this.renderUserView);
   },
   //show edit form with model attr
   editAlbum: function(id) {

@@ -8,6 +8,9 @@ var express = require('express'),
     nib = require('nib'),
     bodyParser = require('body-parser');
 
+var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+
 //require route module for routes
 var index = require('./routes/index'),
     albums = require('./routes/albums'),
@@ -27,6 +30,13 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+//use session
+app.use(session({
+  secret: "secret-session",
+  resave: false,
+  saveUninitialized: true
+}));
+
 //use stylus middleware for app
 app.use(stylus.middleware({
   src: path.join(__dirname, "public"),
@@ -41,18 +51,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-app.use(function (req, res, next) {
-  // check if client sent cookie
-  var cookie = req.cookies.user;
-
-  if (cookie === undefined) {
-    // no: set a new cookie
-    res.cookie('user', '', { maxAge: 518400000, httpOnly: true });
-  }
-
-  next();
-});
 
 //find static path for html and css at public folder
 app.use(express.static(path.join(__dirname, 'public')));

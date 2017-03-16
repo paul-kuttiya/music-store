@@ -5,7 +5,7 @@ var router = require('express').Router(),
 		Users  = require('./users_module');
 
 //fix back navigation rendering
-router.get(['/signup', '/login'], function(req, res) {
+router.get(['/signup', '/login',], function(req, res, next) {
   res.render('index', { albums: Albums.get() });
 });
 
@@ -15,26 +15,26 @@ router.post('/signup', function(req, res, next) {
 				username: req.body.username,
 				password: req.body.password,
 			};
+	
+	var json;
 
 	if (Users.findUser(user)) {
 		res.status(500).send("Username already used").end();
 		next();
 	}
 
-	res.locals.username = user.username;
 	Users.writeTofile(user);
-	res.json({username: user.username});
-	
 
-	// if (!Users.setUser(user)) {
-	// 	res.send('not valid user')
-	// } else if (Users.setUser(user)) {
-	// 	// Users.writeTofile(user);
-	// 	res.send('valid user');
-	// } else {
-	// 	res.send('error');
-	// }
+	var username = {username: user.username}
+	json_user = JSON.stringify(username);
+	localStorage.setItem("user", json_user);
+	res.json(username);
+});
 
+router.post("/logout", function(req, res) {
+	localStorage.clear();
+	// console.log(localStorage.user)
+  res.send(200).end();
 });
 
 module.exports = router;

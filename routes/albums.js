@@ -2,10 +2,15 @@ var router = require('express').Router(),
 		_ 		 = require('underscore'),
 		Albums = require('./albums_module');
 
+var user;
+if (localStorage.getItem("user")) {
+	user = localStorage.getItem("user");
+};
+
 router.get('/new', function(req, res) {
 	//set for refresh & add collection for browser 'back' button
 	//to render indexView
-	res.render('index', {albums: Albums.get()});
+	res.render('index', {albums: Albums.get(), user: user});
 });
 
 router.get('/', function(req, res) {
@@ -26,7 +31,7 @@ router.post("/", function(req, res) {
 //edit
 router.get("/edit/:id", function(req, res) {
 	var edit_model = _.findWhere(Albums.get(), { id: req.params.id });
-	res.render('index', {albums: Albums.get()});
+	res.render('index', {albums: Albums.get(), user: user});
 });
 
 router.put("/edit/:id", function(req, res) {
