@@ -16,7 +16,7 @@ Backend: @ routes/users.js
 		-Modify Backbone route to render index view if verification succeed.
 
 03/16/2017
-*Add npm node local storage dependencies -S
+*Add npm express session -S
 *Add signup require only username and password
 *Revise sign up anchor tag to "#"
 *Revise Backbone route for signup tag

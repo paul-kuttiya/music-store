@@ -3,6 +3,7 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     stylus = require('stylus'),
     nib = require('nib'),
     bodyParser = require('body-parser');
