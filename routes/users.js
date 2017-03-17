@@ -31,6 +31,26 @@ router.post('/signup', function(req, res, next) {
 	res.json(username);
 });
 
+router.post("/login", function(req, res) {
+	var user = req.body,
+			user_info = Users.findUser(user),
+			username ={ username: user_info.username }
+
+
+	if (!Users.findUser(user)) {
+		res.status(500).send("User not found").end();
+		next();
+	}
+	
+	if (user_info.admin) {
+		username.admin = user_info.admin;
+	}
+
+	json_user = JSON.stringify(username);
+	localStorage.setItem("user", json_user);
+	res.json(username);
+});
+
 router.post("/logout", function(req, res) {
 	localStorage.clear();
 	// console.log(localStorage.user)

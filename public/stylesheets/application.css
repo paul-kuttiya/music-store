@@ -30,16 +30,23 @@ form dd input {
   padding: 5px 8px;
   border: 1px solid #888;
 }
-form fieldset.actions a.button {
+form fieldset.actions a.button,
+form fieldset.actions button,
+form fieldset.actions input.button {
+  display: inline-block;
   color: #fff;
   background-color: #f67777;
+  height: 30px;
   padding: 5px 15px;
   border-radius: 6px;
   border: none;
   box-shadow: 0 0 1px 1px #f67777;
   margin: 0 10px 0 0;
+  vertical-align: middle;
 }
-form fieldset.actions a.button:hover {
+form fieldset.actions a.button:hover,
+form fieldset.actions button:hover,
+form fieldset.actions input.button:hover {
   cursor: pointer;
   transform: scale(1.05);
   -webkit-filter: brightness(85%);

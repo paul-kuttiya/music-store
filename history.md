@@ -23,3 +23,7 @@ Backend: @ routes/users.js
 *Add Backbone route navigate to index
 *Render nav bar to contain username when sign up
 	-Fix Express router render all route with index page
+
+03/17/2016
+*Add login validation
+*Add admin privilege

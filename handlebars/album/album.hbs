@@ -1,5 +1,7 @@
-<a href="/albums/edit/{{id}}" id="edit" data-type="edit">edit</a>
-<a href="#" id="delete" data-type="delete" data-target="/albums/delete/{{id}}">delete</a>
+{{#admin}}
+  <a href="/albums/edit/{{id}}" id="edit" data-type="edit">edit</a>
+  <a href="#" id="delete" data-type="delete" data-target="/albums/delete/{{id}}">delete</a>
+{{/admin}}
 <p>{{date}}</p>
 <img src="{{cover}}" alt="cover">
 <h3>{{name}}</h3>

@@ -3,21 +3,23 @@
   <fieldset>
     <dl>
       <dt>
-        <label for="email">Email</label>
+        <label for="email">Username</label>
       </dt>
       <dd>
-        <input id="username" type="text" name="email" placeholder="Email">
+        <input id="username" type="text" name="username" placeholder="Username" required>
+        <input type="submit" hidden>
       </dd>
       <dt>
         <label for="password">Password</label>
       </dt>
       <dd>
-        <input id="password" type="text" name="password" placeholder="Password">
+        <input id="password" type="password" name="password" placeholder="Password" required>
+        <input type="submit" hidden>
       </dd>
     </dl>
   </fieldset>
   <fieldset class="actions">
-    <a href="/" class="button" id="login">Login</a>
+    <input id="login" class="button" type="submit" name="login" value="login">
     <a href="/" class="button" id="cancel">Cancel</a>
   </fieldset>
   <h3>Have no account?</h3>

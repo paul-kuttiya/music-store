@@ -4,15 +4,11 @@ var App = {
   templates: JST,
   indexView: function() {
     this.IndexView = new IndexView();
-    this.renderUserView();
-    // if (!!this.user) {
-    //   this.renderUserView();
-    // }
-    //render first load
+    this.renderUserNavView();
     this.renderAlbum();
     this.bindEvents();
   },
-  renderUserView: function() {
+  renderUserNavView: function() {
     new UserView({model: this.user});
   },
   renderAlbum: function() {
@@ -31,8 +27,7 @@ var App = {
     this.listenTo(this.albums, "edit_album", this.editAlbum);
     //listens to albums collection events then re-render;
     this.listenTo(this.albums, "change update", this.indexView);
-    this.listenTo(this.user, "change", this.renderUserView);
-    this.listenTo(this.user, "page_refresh", this.renderUserView);
+    this.listenTo(this.user, "change", this.renderUserNavView);
   },
   //show edit form with model attr
   editAlbum: function(id) {
@@ -56,5 +51,14 @@ var User = {
   },
   login: function() {
     new LoginView();
+  },
+  isAdmin: function() {
+    return App.user.toJSON().admin;
   }
 };
+
+Handlebars.registerHelper('admin', function(options) {
+  if (User.isAdmin()) {
+    return options.fn(this);
+  }
+});

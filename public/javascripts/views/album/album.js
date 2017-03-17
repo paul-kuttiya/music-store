@@ -28,7 +28,7 @@ var albumView = Backbone.View.extend({
 				var confirm = window.confirm("Delete album?");
 				if (confirm) { App.albums.remove(delete_album); }
 			},
-		})
+		});
 	},
 	render: function() {
 		this.$el.attr("album_id", this.model.toJSON().id);

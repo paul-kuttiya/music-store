@@ -24,14 +24,19 @@ form
 			padding: 5px 8px
 			border: 1px solid colors.grey
 	fieldset.actions
-		a.button
+		a.button,
+		button,
+		input.button
+			display inline-block
 			color: colors.white
 			background-color: colors.red
+			height: 30px
 			padding: 5px 15px
 			border-radius: 6px
 			border: none
 			box-shadow: 0 0 1px 1px colors.red
 			margin: 0 10px 0 0
+			vertical-align: middle
 			&:hover
 				cursor: pointer
 				transform: scale(1.05)

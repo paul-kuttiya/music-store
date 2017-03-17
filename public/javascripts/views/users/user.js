@@ -11,6 +11,7 @@ var UserView = Backbone.View.extend({
       type: $f.data('type'),
       success: function() {
         App.user.clear();
+        App.indexView();
         console.log('out')
       }
     });

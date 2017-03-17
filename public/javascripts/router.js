@@ -13,6 +13,7 @@ var router = new (Backbone.Router.extend({
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index);
+    App.renderUserNavView();
   },
 }))();
 
@@ -28,8 +29,6 @@ $(document).on('click', "a[href^='#']", function(e) {
   e.preventDefault();
 });
 
-$(window).on('load', function() {
-
-  App.user.trigger("page_refresh")
-
+$(document).on('submit', function(e) {
+  e.preventDefault();
 });

@@ -9,7 +9,7 @@ var IndexView = Backbone.View.extend({
   },
   render: function() {
     //set $el html to template
-    this.$el.html(this.template());
+    this.$el.html(this.template(App.user.toJSON()));
     //insert to 'main' element
     //empty main element before re-render --> fix duplication
     this.$el.appendTo(App.$el.empty());
