@@ -54,7 +54,7 @@ router.post("/login", function(req, res) {
 router.post("/logout", function(req, res) {
 	localStorage.clear();
 	// console.log(localStorage.user)
-  res.send(200).end();
+  res.sendStatus(200).end();
 });
 
 module.exports = router;

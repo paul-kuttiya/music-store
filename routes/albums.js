@@ -49,7 +49,7 @@ router.put("/edit/:id", function(req, res) {
 
 	//database
 	Albums.set(albums);
-	res.send(200).end();
+	res.sendStatus(200).end();
 });
 
 router.delete("/delete/:id", function(req, res) {
@@ -59,7 +59,7 @@ router.delete("/delete/:id", function(req, res) {
 			});
 
 	Albums.set(albums);
-	res.send(200).end();
+	res.sendStatus(200).end();
 });
 
 module.exports = router;
