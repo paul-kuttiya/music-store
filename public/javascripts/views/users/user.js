@@ -5,15 +5,14 @@ var UserView = Backbone.View.extend({
   },
   logout: function(e) {
     var $f = $(e.target);
-
+    
     $.ajax({
       url: $f.data('target'),
       type: $f.data('type'),
-      success: function() {
-        App.user.clear();
-        App.indexView();
-        console.log('out')
-      }
+    }).done(function() {
+      App.user.clear();
+      router.path("/")
+      App.indexView();
     });
   },
   render: function() {

@@ -2,19 +2,36 @@ var router = require('express').Router(),
 		_ 		 = require('underscore'),
 		Albums = require('./albums_module');
 
-var user;
-if (localStorage.getItem("user")) {
-	user = localStorage.getItem("user");
-};
+var user, admin;
+router.all(["/", "/new", "/edit/:id"], function(req, res, next) {
+	user = localStorage.getItem("user"),
+	admin = JSON.parse(user).admin;
+	
+	res.locals = {
+		albums: Albums.get(),
+		user: user,
+	}
+	next();
+});
+
 
 router.get('/new', function(req, res) {
 	//set for refresh & add collection for browser 'back' button
 	//to render indexView
-	res.render('index', {albums: Albums.get(), user: user});
+	// res.render('index', {albums: Albums.get(), user: user});
+	if (admin) {
+		res.render('index');
+	} else {
+		res.render('404');
+	}
 });
 
 router.get('/', function(req, res) {
-	res.json(Albums.get());
+	if (admin) {
+		res.json(Albums.get());
+	} else {
+		res.render('404');
+	}
 });
 
 router.post("/", function(req, res) {
@@ -31,7 +48,11 @@ router.post("/", function(req, res) {
 //edit
 router.get("/edit/:id", function(req, res) {
 	var edit_model = _.findWhere(Albums.get(), { id: req.params.id });
-	res.render('index', {albums: Albums.get(), user: user});
+	if (admin) {
+		res.render('index');
+	} else {
+		res.render('404');
+	}
 });
 
 router.put("/edit/:id", function(req, res) {

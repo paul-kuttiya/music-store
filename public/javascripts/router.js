@@ -1,21 +1,60 @@
-var router = new (Backbone.Router.extend({
-  routes: {
-    "albums/new": App.newAlbum,
-    "albums/edit/:id": App.editAlbum,
-    "users/signup": User.signup,
-    "users/login": User.login,
-  },
-  index: function() {
-    App.indexView();
-  },
-  path: function(path) {
-    this.navigate(path, {trigger: true});
-  },
-  initialize: function() {
-    this.route(/^\/?$/, "index", this.index);
-    App.renderUserNavView();
-  },
-}))();
+// var router = new (Backbone.Router.extend({
+//   routes: {
+//     "albums/new": App.newAlbum,
+//     "albums/edit/:id": App.editAlbum,
+//     "users/signup": User.signup,
+//     "users/login": User.login,
+//   },
+//   index: function() {
+//     App.indexView();
+//   },
+//   path: function(path) {
+//     this.navigate(path, {trigger: true});
+//   },
+//   initialize: function() {
+//     this.route(/^\/?$/, "index", this.index);
+//     App.renderUserNavView();
+//   },
+// }))();
+
+//working code need refactor
+if (User.isAdmin()) {
+  var router = new (Backbone.Router.extend({
+    routes: {
+      "albums/new": App.newAlbum,
+      "albums/edit/:id": App.editAlbum,
+      "users/signup": User.signup,
+      "users/login": User.login,
+    },
+    index: function() {
+      App.indexView();
+    },
+    path: function(path) {
+      this.navigate(path, {trigger: true});
+    },
+    initialize: function() {
+      App.renderUserNavView();
+      this.route(/^\/?$/, "index", this.index);
+    },
+  }))();
+} else {
+  var router = new (Backbone.Router.extend({
+    routes: {
+      "users/signup": User.signup,
+      "users/login": User.login,
+    },
+    index: function() {
+      App.indexView();
+    },
+    path: function(path) {
+      this.navigate(path, {trigger: true});
+    },
+    initialize: function() {
+      this.route(/^\/?$/, "index", this.index);
+      App.renderUserNavView();
+    },
+  }))();
+}
 
 Backbone.history.start({ pushState: true });
 

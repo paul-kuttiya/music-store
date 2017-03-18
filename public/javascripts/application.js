@@ -4,6 +4,8 @@ var App = {
   templates: JST,
   indexView: function() {
     this.IndexView = new IndexView();
+
+    //first load
     this.renderUserNavView();
     this.renderAlbum();
     this.bindEvents();
@@ -35,6 +37,7 @@ var App = {
     //set id to App.edit_id --> from click event || +id from router refresh
     //id available from being a router routes callback(when refresh)
     var edit_album = App.albums.findWhere({ id: id });
+
     var edit = new EditAlbumView({
       model: edit_album,
     });
@@ -47,10 +50,22 @@ var App = {
 var User = {
   $el: $('nav#top ul.header-links'),
   signup: function() {
+    if (App.user.toJSON().username) {
+      router.path("/");
+      return;
+    }
+
     new SignupView();
   },
   login: function() {
+    if (App.user.toJSON().username) {
+      router.path("/");
+      return;
+    }
     new LoginView();
+  },
+  isLoggedIn: function() {
+    return App.user.toJSON().username;
   },
   isAdmin: function() {
     return App.user.toJSON().admin;

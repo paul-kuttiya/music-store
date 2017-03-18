@@ -5,7 +5,13 @@ var router = require('express').Router(),
 		Users  = require('./users_module');
 
 //fix back navigation rendering
-router.get(['/signup', '/login',], function(req, res, next) {
+router.get(['/signup', '/login'], function(req, res, next) {
+	var user = JSON.parse(localStorage.getItem('user')).username;
+			
+
+	if (user) {
+		res.locals.user = JSON.stringify({"username": user});
+	};
   res.render('index', { albums: Albums.get() });
 });
 
@@ -52,9 +58,8 @@ router.post("/login", function(req, res) {
 });
 
 router.post("/logout", function(req, res) {
-	localStorage.clear();
-	// console.log(localStorage.user)
-  res.sendStatus(200).end();
+	localStorage.setItem("user", "{}");
+  res.sendStatus(200);
 });
 
 module.exports = router;

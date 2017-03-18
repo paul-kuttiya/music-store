@@ -15,16 +15,13 @@ var express = require('express'),
 
 
 /* GET home page. */
+//check if user is signed in using localStorage --> render at bottom html script
 router.get('/', function(req, res) {
-  // if (req.session.user) {
-  //   var user = req.session.user;
-  // }
   var user;
   if (localStorage.getItem("user")) {
     user = localStorage.getItem("user");
   };
 
-  console.log(user)
   res.render('index', { albums: Albums.get(), user: user });
 });
 

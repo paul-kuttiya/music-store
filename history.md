@@ -26,4 +26,5 @@ Backend: @ routes/users.js
 
 03/17/2016
 *Add login validation
-*Add admin privilege
+*Add admin privilege for express route and Backbone view
+*Add 404 jade view
