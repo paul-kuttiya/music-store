@@ -2,49 +2,76 @@
 @import "mixins"
 @import "form"
 
-*
-	box-sizing: border-box
 body
 	font-style()
 a
 	text-decoration: none
 #header
-	#logo
-		position: absolute
-		left: 10%
-	.header-links
-		margin: 0 0 0 30%
-		li
-			float: left
-	.header-icons
-		margin: 0 10% 0 0
-		li, #cart
-			float: right
-	nav#top,
-	nav#bottom
-		overflow: hidden
+	li
+		display: inline-block
 	nav#top
+		overflow: auto
 		background: colors.black
+		.header-links
+			margin: 0 15px 0 0
+			float: right
+		.header-icons
+			margin: 0 0 0 15px
+			float: left
 		a
 			color: colors.white
 			display: block
 			padding: 10px
 			&:hover
 				color: colors.red
+	.clearfix
+		clear: both				
 	nav#bottom
-		border-bottom: 1px solid colors.border
-		a
+		border-bottom: 1px solid colors.border	
+		.header-links
+			float: left
+		.header-icons
+			margin: 0 15px 0 0
+			float: right
+		a, #cart
 			color: colors.black
 			display: block
 			padding: 20px 10px
 			border-right: 1px solid colors.border
-			&:hover
-				color: colors.white
-				background: colors.red	
-		#cart a
+		a:hover
+			color: colors.white
+			background: colors.red
+		#cart
+			text-align: right
 			border: none
+			position: relative
+			label
+				display: inline-block
+				width: 100%
+				cursor: pointer
+			input
+				display: none
+				&:checked + #items
+					display: block
+			#items
+				border: 1px solid colors.border
+				border-bottom: 2px solid colors.red
+				display: none
+				padding: 5px
+				position: absolute
+				top: 100%
+				right: 0
+				z-index: 1
+			li
+				text-align: left
+				width: 200px
+			#remove
+				margin: 0 5px 0 0
+			small
+				float: right
 
 main
+	clear: both
 	text-align: center
 	width: 90%
 	margin: 0 auto

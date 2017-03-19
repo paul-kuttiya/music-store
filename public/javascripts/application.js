@@ -102,3 +102,10 @@ Handlebars.registerHelper('admin', function(options) {
     return options.fn(this);
   }
 });
+
+//refactor
+Handlebars.registerHelper('notAdmin', function(options) {
+  if (!User.isAdmin()) {
+    return options.fn(this);
+  }
+});

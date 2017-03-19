@@ -1,18 +1,29 @@
 div#header
-	div#logo
-		a(href=""): img(src="http://placehold.it/125x75")
 	nav#top
-		ul.header-links
-
 		ul.header-icons
 			li: a(href=""): i sc
 			li: a(href=""): i sc
 			li: a(href=""): i sc
-			li: a(href=""): i sc
+			li: a(href=""): i sc	
+		ul.header-links
 	nav#bottom
 		ul.header-links
 			li: a(href="") Home
 			li: a(href="") About
 			li: a(href="") Contact
 		div.header-icons
-			span#cart: a cart
+			#cart
+				label(for="cart_toggle") 2 items
+				input#cart_toggle(type="checkbox")
+				#items
+					ul
+						li
+							span#remove X				
+							| Album Name x 2
+							small $19.00
+						li
+							span#remove X				
+							| newone Name x 2
+							small $20.00
+					p $50.00
+		div.clearfix			

@@ -45,24 +45,34 @@ this["JST"]["album/edit"] = Handlebars.template({"1":function(container,depth0,h
     + "\" /></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\" value=\""
     + alias4(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data}) : helper)))
     + "\" /></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"/\" class=\"button\" id=\"update\">Update</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "<h1>There is no such page</h1>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, options, buffer = "";
+    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=helpers.blockHelperMissing, buffer = "";
 
-  stack1 = ((helper = (helper = helpers.admin || (depth0 != null ? depth0.admin : depth0)) != null ? helper : helpers.helperMissing),(options={"name":"admin","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},options) : helper));
-  if (!helpers.admin) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
+  stack1 = ((helper = (helper = helpers.admin || (depth0 != null ? depth0.admin : depth0)) != null ? helper : alias2),(options={"name":"admin","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.admin) { stack1 = alias4.call(depth0,stack1,options)}
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "<h1>There is no such page</h1>";
+  stack1 = ((helper = (helper = helpers.notAdmin || (depth0 != null ? depth0.notAdmin : depth0)) != null ? helper : alias2),(options={"name":"notAdmin","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.notAdmin) { stack1 = alias4.call(depth0,stack1,options)}
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
 },"useData":true});
 
 this["JST"]["album/new"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     return "<h1>Add Album</h1><form action=\"/albums\" method=\"post\"><fieldset><dl><dt><label for=\"date\">Date</label></dt><dd><input id=\"date\" name=\"date\" type=\"date\"/></dd><dt><label for=\"cover\">Cover</label></dt><dd><input id=\"cover\" name=\"cover\" type=\"url\" placeholder=\"cover link\"/></dd><dt><label for=\"name\">Artist</label></dt><dd><input id=\"name\" name=\"name\" type=\"text\" placeholder=\"artist name\"/></dd><dt><label for=\"title\">Title</label></dt><dd><input id=\"title\" name=\"title\" type=\"text\" placeholder=\"album title\"/></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\"/></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"/\" class=\"button\" id=\"submit\">Create</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "<h1>There is no such page</h1>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, options, buffer = "";
+    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=helpers.blockHelperMissing, buffer = "";
 
-  stack1 = ((helper = (helper = helpers.admin || (depth0 != null ? depth0.admin : depth0)) != null ? helper : helpers.helperMissing),(options={"name":"admin","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},options) : helper));
-  if (!helpers.admin) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
+  stack1 = ((helper = (helper = helpers.admin || (depth0 != null ? depth0.admin : depth0)) != null ? helper : alias2),(options={"name":"admin","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.admin) { stack1 = alias4.call(depth0,stack1,options)}
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "<h1>There is no such page</h1>";
+  stack1 = ((helper = (helper = helpers.notAdmin || (depth0 != null ? depth0.notAdmin : depth0)) != null ? helper : alias2),(options={"name":"notAdmin","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.notAdmin) { stack1 = alias4.call(depth0,stack1,options)}
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
 },"useData":true});
 
 this["JST"]["index"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

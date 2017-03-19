@@ -41,4 +41,6 @@
     </fieldset>
   </form>
 {{/admin}}
-<h1>There is no such page</h1>
+{{#notAdmin}}
+  <h1>There is no such page</h1>
+{{/notAdmin}}
