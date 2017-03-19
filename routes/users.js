@@ -6,12 +6,6 @@ var router = require('express').Router(),
 
 //fix back navigation rendering
 router.get(['/signup', '/login'], function(req, res, next) {
-	var user = JSON.parse(localStorage.getItem('user')).username;
-			
-
-	if (user) {
-		res.locals.user = JSON.stringify({"username": user});
-	};
   res.render('index', { albums: Albums.get() });
 });
 
@@ -33,18 +27,22 @@ router.post('/signup', function(req, res, next) {
 
 	var username = {username: user.username}
 	json_user = JSON.stringify(username);
-	localStorage.setItem("user", json_user);
+//session
 	res.json(username);
 });
 
 router.post("/login", function(req, res) {
 	var user = req.body,
-			user_info = Users.findUser(user),
-			username ={ username: user_info.username }
-
+			user_info = Users.findUser(user) || {},
+			username = { username: user_info.username };
 
 	if (!Users.findUser(user)) {
 		res.status(500).send("User not found").end();
+		next();
+	}
+
+	if (req.body.password !== user_info.password) {
+		res.status(500).send("Wrong password").end();
 		next();
 	}
 	
@@ -53,12 +51,12 @@ router.post("/login", function(req, res) {
 	}
 
 	json_user = JSON.stringify(username);
-	localStorage.setItem("user", json_user);
+	req.session.user = username;
 	res.json(username);
 });
 
-router.post("/logout", function(req, res) {
-	localStorage.setItem("user", "{}");
+router.delete("/logout", function(req, res) {
+	req.session.destroy();
   res.sendStatus(200);
 });
 

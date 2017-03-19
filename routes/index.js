@@ -17,12 +17,7 @@ var express = require('express'),
 /* GET home page. */
 //check if user is signed in using localStorage --> render at bottom html script
 router.get('/', function(req, res) {
-  var user;
-  if (localStorage.getItem("user")) {
-    user = localStorage.getItem("user");
-  };
-
-  res.render('index', { albums: Albums.get(), user: user });
+  res.render('index', { albums: Albums.get() });
 });
 
 module.exports = router;

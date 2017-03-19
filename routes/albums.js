@@ -2,15 +2,16 @@ var router = require('express').Router(),
 		_ 		 = require('underscore'),
 		Albums = require('./albums_module');
 
-var user, admin;
 router.all(["/", "/new", "/edit/:id"], function(req, res, next) {
-	user = localStorage.getItem("user"),
-	admin = JSON.parse(user).admin;
+	var user = req.session.user;
 	
+	//still need user to render user nav, albums to render when browse back
 	res.locals = {
 		albums: Albums.get(),
-		user: user,
+		user: JSON.stringify(user),
 	}
+
+	console.log(req.session);
 	next();
 });
 
@@ -18,23 +19,15 @@ router.all(["/", "/new", "/edit/:id"], function(req, res, next) {
 router.get('/new', function(req, res) {
 	//set for refresh & add collection for browser 'back' button
 	//to render indexView
-	// res.render('index', {albums: Albums.get(), user: user});
-	if (admin) {
-		res.render('index');
-	} else {
-		res.render('404');
-	}
+	res.render('index');
 });
 
 router.get('/', function(req, res) {
-	if (admin) {
-		res.json(Albums.get());
-	} else {
-		res.render('404');
-	}
+	res.json(Albums.get());
 });
 
 router.post("/", function(req, res) {
+	console.log(req.session)
 	var albums = Albums.get(),
 			new_album = req.body;
 			last_id = Albums.getLastId();
@@ -47,12 +40,7 @@ router.post("/", function(req, res) {
 
 //edit
 router.get("/edit/:id", function(req, res) {
-	var edit_model = _.findWhere(Albums.get(), { id: req.params.id });
-	if (admin) {
-		res.render('index');
-	} else {
-		res.render('404');
-	}
+	res.render('index');
 });
 
 router.put("/edit/:id", function(req, res) {

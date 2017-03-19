@@ -10,8 +10,10 @@ var UserView = Backbone.View.extend({
       url: $f.data('target'),
       type: $f.data('type'),
     }).done(function() {
+      App.user.trigger("logout")
       App.user.clear();
-      router.path("/")
+      localStorage.clear();
+      router.path("/");
       App.indexView();
     });
   },

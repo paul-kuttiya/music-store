@@ -16,10 +16,9 @@ var SignupView = Backbone.View.extend({
       data: userInfo,
       success: function(json) {
         //got {username: username} from server when success
-        App.user = new UserModel(json);
-        //send through express localStorage
         //declare at index view bottom script
-        
+        App.user = new UserModel(json);
+        App.setStorage();
         router.path("/");
       },
       error: function() {

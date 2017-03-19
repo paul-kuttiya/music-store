@@ -28,3 +28,6 @@ Backend: @ routes/users.js
 *Add login validation
 *Add admin privilege for express route and Backbone view
 *Add 404 jade view
+
+03/19
+*Create cart css

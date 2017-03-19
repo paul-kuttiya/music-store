@@ -11,7 +11,8 @@ var App = {
     this.bindEvents();
   },
   renderUserNavView: function() {
-    new UserView({model: this.user});
+    var user = this.checkUser();
+    new UserView({model: user});
   },
   renderAlbum: function() {
     //this.albums = albums from Express get from data
@@ -29,7 +30,29 @@ var App = {
     this.listenTo(this.albums, "edit_album", this.editAlbum);
     //listens to albums collection events then re-render;
     this.listenTo(this.albums, "change update", this.indexView);
-    this.listenTo(this.user, "change", this.renderUserNavView);
+    this.listenTo(this.user, "change logout", this.renderUserNavView);
+  },
+  setStorage: function() {
+    var user = App.user.toJSON();
+    localStorage.setItem("user", JSON.stringify(user));
+  },
+  getStorage: function() {
+    if (!localStorage.user) {
+      return;
+    }
+    var user = JSON.parse(localStorage.user);
+    return user;
+  },
+  checkUser: function() {
+    var loggedIn = !!localStorage.user,
+        user;
+    
+    if (loggedIn) {
+      user = JSON.parse(localStorage.user);
+      this.user = new UserModel(user)
+    }
+
+    return this.user;
   },
   //show edit form with model attr
   editAlbum: function(id) {
@@ -65,11 +88,13 @@ var User = {
     new LoginView();
   },
   isLoggedIn: function() {
-    return App.user.toJSON().username;
+    return App.getStorage();
   },
   isAdmin: function() {
-    return App.user.toJSON().admin;
-  }
+    if (this.isLoggedIn() && this.isLoggedIn().admin) {
+      return this.isLoggedIn().admin;
+    }
+  },
 };
 
 Handlebars.registerHelper('admin', function(options) {

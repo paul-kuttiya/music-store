@@ -12,6 +12,7 @@ var LoginView = Backbone.View.extend({
       data: $f.serialize(),
       success: function(json) {
         App.user = new UserModel(json);
+        App.setStorage();
         router.path("/");
       },
     });

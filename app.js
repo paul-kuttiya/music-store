@@ -3,13 +3,12 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    session = require('express-session'),
     stylus = require('stylus'),
     nib = require('nib'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    session = require('express-session');
 
-var LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
+//session always below bodyParser
 
 //require route module for routes
 var index = require('./routes/index'),
@@ -30,13 +29,6 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-//use session
-app.use(session({
-  secret: "secret-session",
-  resave: false,
-  saveUninitialized: true
-}));
-
 //use stylus middleware for app
 app.use(stylus.middleware({
   src: path.join(__dirname, "public"),
@@ -51,6 +43,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//register below cookieParser
+//use session
+app.use(session({
+  secret: "secret-session",
+  resave: false,
+  saveUninitialized: true
+}));
 
 //find static path for html and css at public folder
 app.use(express.static(path.join(__dirname, 'public')));
