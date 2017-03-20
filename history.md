@@ -34,3 +34,4 @@ Backend: @ routes/users.js
 
 03/20
 *add cart backbone
+*refactor user model
