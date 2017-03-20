@@ -9,17 +9,20 @@ var path = require('path'),
    getUsers: function() {
      return JSON.parse(users);
    },
-	 writeTofile: function(user) {
+	 addUser: function(user) {
 	   var data = this.getUsers();
 		 
 		 data.push(user);
 		 fs.writeFileSync(file_path, JSON.stringify(data));
 	 },
-   findUser: function(user) {
-     var user_data = this.getUsers(), 
-		 		 result = _(user_data).findWhere({ username: user.username });
-     
-		 return result;
+   writeData: function(data) {
+     fs.writeFileSync(file_path,  JSON.stringify(data));
+   },
+   findUser: function(user) { 
+     var users = this.getUsers(user),
+         result = _(users).findWhere({ username: user.username });
+
+     return result;
    },
  };
 

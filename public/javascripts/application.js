@@ -40,6 +40,7 @@ var App = {
     //trigger from album view
     this.on("add_to_cart", this.cart.addItem.bind(this.cart));
   },
+  //refactor --> move to user model
   setStorage: function() {
     var user = App.user.toJSON();
     localStorage.setItem("user", JSON.stringify(user));

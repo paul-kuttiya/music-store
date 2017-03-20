@@ -14,7 +14,7 @@ mixin javascript_include_models(src, ...rest)
 mixin javascript_include_collections(src, ...rest)
 	script(type="text/javascript" src="/javascripts/collections/#{src}.js")
 	each file in rest
-		script(type="text/javascript" src="/javascripts/collections/#{file}.js")			
+		script(type="text/javascript" src="/javascripts/collections/#{file}.js")
 
 mixin javascript_include_albumView(src, ...rest)
 	script(type="text/javascript" src="/javascripts/views/album/#{src}.js")

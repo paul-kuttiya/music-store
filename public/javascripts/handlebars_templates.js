@@ -129,7 +129,7 @@ this["JST"]["user/user"] = Handlebars.template({"1":function(container,depth0,he
 
   return "<li><a href=\"#\">Hi, "
     + container.escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"username","hash":{},"data":data}) : helper)))
-    + "</a></li><li><a id=\"logout\" href=\"#\" data-type=\"delete\" data-target=\"/users/logout\">Log Out</a></li>";
+    + "</a></li><li><a id=\"logout\" href=\"#\" data-type=\"post\" data-target=\"/users/logout\">Log Out</a></li>";
 },"3":function(container,depth0,helpers,partials,data) {
     return "<li><a href=\"/users/login\">Login</a></li><li><a href=\"/users/signup\">Sign Up</a></li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

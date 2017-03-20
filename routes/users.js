@@ -23,7 +23,7 @@ router.post('/signup', function(req, res, next) {
 		next();
 	}
 
-	Users.writeTofile(user);
+	Users.addUser(user);
 
 	var username = {username: user.username}
 	json_user = JSON.stringify(username);
@@ -50,12 +50,31 @@ router.post("/login", function(req, res) {
 		username.admin = user_info.admin;
 	}
 
-	json_user = JSON.stringify(username);
+	//refactor
+	username.cart = user_info.cart;
+
 	req.session.user = username;
+	console.log(req.session.user)
+	console.log(username)
 	res.json(username);
 });
 
-router.delete("/logout", function(req, res) {
+router.post("/logout", function(req, res) {
+	var user = JSON.parse(req.body.user);
+			users = Users.getUsers(),
+	    match = _(users).findWhere({username: user.username}),
+			items = JSON.parse(req.body.cart);
+
+	if (match) {
+		match.cart = items;
+	};
+
+	console.log(user)
+	// console.log(users)
+	console.log(match)
+	// console.log(items)
+	
+	Users.writeData(users);
 	req.session.destroy();
   res.sendStatus(200);
 });
