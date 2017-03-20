@@ -58,11 +58,29 @@ body {
 a {
   text-decoration: none;
 }
+a#new.button {
+  display: block;
+  float: right;
+  width: 32px;
+  height: 32px;
+  background-color: #f67777;
+  border: 1px solid #888;
+  color: #fff;
+  font-size: 1.6em;
+  border-radius: 50%;
+}
+a#new.button:hover {
+  transform: scale(1.1);
+  -webkit-filter: brightness(80%);
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+}
 #header li {
   display: inline-block;
 }
 #header nav#top {
-  overflow: auto;
+  overflow: hidden;
   background: #333;
 }
 #header nav#top .header-links {
@@ -81,11 +99,15 @@ a {
 #header nav#top a:hover {
   color: #f67777;
 }
-#header .clearfix {
-  clear: both;
-}
 #header nav#bottom {
   border-bottom: 1px solid #e3e3e3;
+}
+#header nav#bottom:after {
+  content: ".";
+  visibility: hidden;
+  height: 0;
+  display: block;
+  clear: both;
 }
 #header nav#bottom .header-links {
   float: left;
@@ -154,6 +176,7 @@ main {
   padding: 20px;
 }
 main h1 {
+  clear: both;
   font-size: 3em;
   padding: 10px;
 }

@@ -106,7 +106,7 @@ this["JST"]["cart/cart"] = Handlebars.template({"1":function(container,depth0,he
 },"useData":true});
 
 this["JST"]["index"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "<a href=\"/albums/new\" class=\"button\" id=\"new\">Create</a>";
+    return "<a href=\"/albums/new\" class=\"button\" id=\"new\">+</a>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, options, buffer = "";
 

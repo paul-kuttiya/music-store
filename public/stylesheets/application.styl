@@ -6,11 +6,28 @@ body
 	font-style()
 a
 	text-decoration: none
+a#new.button
+	display: block
+	float: right
+	width:32px
+	height:32px
+	background-color: colors.red
+	border:1px solid colors.grey
+	color: colors.white
+	font-size: 1.6em
+	border-radius: 50%;
+	&:hover
+		transform: scale(1.1)
+		-webkit-filter: brightness(80%)	
+		-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+		-moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+		box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+
 #header
 	li
 		display: inline-block
 	nav#top
-		overflow: auto
+		overflow: hidden
 		background: colors.black
 		.header-links
 			margin: 0 15px 0 0
@@ -23,10 +40,14 @@ a
 			display: block
 			padding: 10px
 			&:hover
-				color: colors.red
-	.clearfix
-		clear: both				
+				color: colors.red		
 	nav#bottom
+		&:after
+			content: "."
+			visibility: hidden
+			height: 0
+			display: block
+			clear: both
 		border-bottom: 1px solid colors.border	
 		.header-links
 			float: left
@@ -81,6 +102,7 @@ main
 	margin: 0 auto
 	padding: 20px
 	h1
+		clear: both
 		font-size: 3em
 		padding: 10px
 		+ span
