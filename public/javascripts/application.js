@@ -1,6 +1,5 @@
 var App = {
   $el: $('main'),
-  $add: $('a.create'),
   templates: JST,
   indexView: function() {
     this.IndexView = new IndexView();
@@ -8,12 +7,12 @@ var App = {
     //first load
     this.renderUserNavView();
     this.renderAlbum();
-    this.createCart();
     this.bindEvents();
   },
   renderUserNavView: function() {
     var user = this.checkUser();
     new UserView({model: user});
+    this.createCart();
   },
   renderAlbum: function() {
     //this.albums = albums from Express get from data

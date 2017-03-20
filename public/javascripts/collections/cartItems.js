@@ -35,7 +35,8 @@ var CartItems = Backbone.Collection.extend({
     }
 
     //after check existing find and update total and quantity
-    this.setTotal().setQuantity();
+    this.update();
+    //listen by cartView --> re-render
     this.trigger("cart_update");
     console.log("cart_update");
     //will listen by collectionView(carView) then render
@@ -44,10 +45,22 @@ var CartItems = Backbone.Collection.extend({
     var item = this.get(id);
 
     this.remove(item);
-    this.setQuantity().setTotal();
+    this.update();
+  },
+  readStorage: function() {
+    var stored_cart = JSON.parse(localStorage.getItem("cart"));
+    this.reset(stored_cart);
+    this.setTotal().setQuantity();
+  },
+  updateStorage: function() {
+    localStorage.setItem("cart", JSON.stringify(this.toJSON()));
+  },
+  update: function() {
+    this.setTotal().setQuantity().updateStorage();
   },
   initialize: function() {
     //listen to destroy triggered from view;
     this.on('destroy', this.destroy);
+    this.readStorage();
   }
 });
