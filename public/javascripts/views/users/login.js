@@ -11,8 +11,8 @@ var LoginView = Backbone.View.extend({
       type: $f.attr('method'),
       data: $f.serialize(),
       success: function(json) {
-        var user = {"username": json.username},
-            cart = json.cart;
+        var user = {"username": json.username, "admin": json.admin},
+            cart = json.cart || [];
         //refactor
         App.user = new UserModel(user);
         localStorage.setItem("cart", JSON.stringify(cart));
