@@ -6,6 +6,16 @@ mixin javascript_include(src, ...rest)
 	each file in rest
 		script(type="text/javascript" src="/javascripts/#{file}.js")
 
+mixin javascript_include_models(src, ...rest)
+	script(type="text/javascript" src="/javascripts/models/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/models/#{file}.js")
+
+mixin javascript_include_collections(src, ...rest)
+	script(type="text/javascript" src="/javascripts/collections/#{src}.js")
+	each file in rest
+		script(type="text/javascript" src="/javascripts/collections/#{file}.js")			
+
 mixin javascript_include_albumView(src, ...rest)
 	script(type="text/javascript" src="/javascripts/views/album/#{src}.js")
 	each file in rest
@@ -16,7 +26,7 @@ mixin javascript_include_userView(src, ...rest)
 	each file in rest
 		script(type="text/javascript" src="/javascripts/views/users/#{file}.js")
 
-mixin javascript_include_models(src, ...rest)
-	script(type="text/javascript" src="/javascripts/models/#{src}.js")
+mixin javascript_include_cartView(src, ...rest)
+	script(type="text/javascript" src="/javascripts/views/cart/#{src}.js")
 	each file in rest
-		script(type="text/javascript" src="/javascripts/models/#{file}.js")
+		script(type="text/javascript" src="/javascripts/views/cart/#{file}.js")

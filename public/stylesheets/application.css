@@ -137,6 +137,11 @@ a {
 }
 #header nav#bottom #cart #remove {
   margin: 0 5px 0 0;
+  color: #f67777;
+  font-weight: bolder;
+}
+#header nav#bottom #cart #remove:hover {
+  cursor: pointer;
 }
 #header nav#bottom #cart small {
   float: right;

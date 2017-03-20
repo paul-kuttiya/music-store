@@ -16,10 +16,11 @@ html
 
     +javascript_include("application")
     +javascript_include_models("album", "user")
-    +javascript_include("collections/albums")
+    +javascript_include_collections("albums", "cartItems")
     +javascript_include("views/index")
     +javascript_include_albumView("album", "new", "edit")
     +javascript_include_userView("signup", "login", "user")
+    +javascript_include_cartView("cart")
     script(type="text/javascript").
       App.albums = new Albums(!{JSON.stringify(albums)});
       App.user = new UserModel(!{(user)});

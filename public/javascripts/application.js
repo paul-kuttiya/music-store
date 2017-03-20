@@ -8,6 +8,7 @@ var App = {
     //first load
     this.renderUserNavView();
     this.renderAlbum();
+    this.createCart();
     this.bindEvents();
   },
   renderUserNavView: function() {
@@ -24,6 +25,12 @@ var App = {
       model: album,
     });
   },
+  createCart: function() {
+    this.cart = new CartItems();
+    this.cart.view = new CartView({
+      collection: this.cart
+    });
+  },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.listenTo(this.IndexView, "add_album", this.newAlbum);
@@ -31,6 +38,8 @@ var App = {
     //listens to albums collection events then re-render;
     this.listenTo(this.albums, "change update", this.indexView);
     this.listenTo(this.user, "change logout", this.renderUserNavView);
+    //trigger from album view
+    this.on("add_to_cart", this.cart.addItem.bind(this.cart));
   },
   setStorage: function() {
     var user = App.user.toJSON();
@@ -44,11 +53,11 @@ var App = {
     return user;
   },
   checkUser: function() {
-    var loggedIn = !!localStorage.user,
+    var loggedIn = localStorage.getItem("user"),
         user;
     
     if (loggedIn) {
-      user = JSON.parse(localStorage.user);
+      user = JSON.parse(loggedIn);
       this.user = new UserModel(user)
     }
 

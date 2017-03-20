@@ -6,6 +6,12 @@ var albumView = Backbone.View.extend({
 	events: {
 		"click a#delete": "delete",
 		"click a#edit": "edit",
+		"click a#add_to_cart": "addToCart",
+	},
+	addToCart: function() {
+		//pass extra arg to the callback when trigger
+		//pass this.model to callback in --> App.on("add_to_cart", callback)
+		App.trigger("add_to_cart", this.model);
 	},
 	edit: function() {
 		var id = +this.$el.attr("album_id");

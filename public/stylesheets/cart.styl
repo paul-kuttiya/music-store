@@ -1,0 +1,32 @@
+#header
+  #nav-bottom
+    #cart
+      text-align: right
+      border: none
+      position: relative
+      label
+        display: inline-block
+        width: 100%
+        cursor: pointer
+      input
+        display: none
+        &:checked + #items
+          display: block
+      #items
+        border: 1px solid colors.border
+        border-bottom: 2px solid colors.red
+        display: none
+        padding: 5px
+        position: absolute
+        top: 100%
+        right: 0
+        z-index: 1
+        span#remove
+          color: colors.red       
+      li
+        text-align: left
+        width: 200px
+      #remove
+        margin: 0 5px 0 0
+      small
+        float: right
