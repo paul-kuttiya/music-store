@@ -64,7 +64,6 @@ a#new.button {
   width: 32px;
   height: 32px;
   background-color: #f67777;
-  border: 1px solid #888;
   color: #fff;
   font-size: 1.6em;
   border-radius: 50%;
@@ -129,16 +128,18 @@ a#new.button:hover {
   margin: 0 15px 0 0;
   float: right;
 }
-#header nav#bottom a,
 #header nav#bottom #cart {
   color: #333;
   display: block;
   padding: 20px 10px;
   border-right: 1px solid #e3e3e3;
 }
+#header nav#bottom a {
+  color: #888;
+  margin: 0 0 0 10px;
+}
 #header nav#bottom a:hover {
-  color: #fff;
-  background: #f67777;
+  color: #f67777;
 }
 #header nav#bottom #cart {
   text-align: right;

@@ -3,17 +3,16 @@ include /_mixins
 doctype html
 html
   head
-    title= title
+    title Music Store
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen")
     +stylesheet_font_awesome
     +stylesheet_link("application")
     +javascript_include("vendor/all")
     +javascript_include("handlebars_templates")
   body
-    include nav
+    include ./partials/nav
     main
       block content
-    include footer
 
     +javascript_include("application")
     +javascript_include_models("album", "user")

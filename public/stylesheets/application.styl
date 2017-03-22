@@ -12,7 +12,6 @@ a#new.button
 	width:32px
 	height:32px
 	background-color: colors.red
-	border:1px solid colors.grey
 	color: colors.white
 	font-size: 1.6em
 	border-radius: 50%;
@@ -65,14 +64,16 @@ a#new.button
 		.header-icons
 			margin: 0 15px 0 0
 			float: right
-		a, #cart
+		#cart
 			color: colors.black
 			display: block
 			padding: 20px 10px
 			border-right: 1px solid colors.border
-		a:hover
-			color: colors.white
-			background: colors.red
+		a
+			color: colors.grey
+			margin: 0 0 0 10px	
+			&:hover
+				color: colors.red
 		#cart
 			text-align: right
 			border: none
