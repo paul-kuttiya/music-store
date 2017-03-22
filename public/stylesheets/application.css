@@ -76,6 +76,9 @@ a#new.button:hover {
   -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
 }
+.profile {
+  font-size: 1.5em;
+}
 #header li {
   display: inline-block;
 }
@@ -101,6 +104,16 @@ a#new.button:hover {
 }
 #header nav#bottom {
   border-bottom: 1px solid #e3e3e3;
+}
+#header nav#bottom #title {
+  float: left;
+  font-size: 1.75em;
+  line-height: 50px;
+  margin: 0 0 0 25px;
+}
+#header nav#bottom #title p {
+  display: inline-block;
+  margin: 0 0 0 10px;
 }
 #header nav#bottom:after {
   content: ".";
