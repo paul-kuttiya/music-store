@@ -1,9 +1,9 @@
-03/16/2017
-*Revise user to users
-*Sign up and login use email and password.
-*Frontend: @ public/javascripts/views/signup.js
-	*Add Sign up events for Backbone sign up view
-		-Add ajax event for #signup post username and password for success.
+03/16/2017  
+*	Revise user to users
+*	Sign up and login use email and password.
+*	Frontend: @ public/javascripts/views/signup.js
+	*	Add Sign up events for Backbone sign up view
+		*	Add ajax event for #signup post username and password for success.
 Backend: @ routes/users.js
 	*Install uuid for npm for generating users' id.
 		-uuid.v4()
