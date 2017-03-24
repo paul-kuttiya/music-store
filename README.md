@@ -1,6 +1,15 @@
 # music-store
 music store with backboneJS  
 
+Register as unique username  
+
+or
+
+Sign in as admin to have admin privilege  
+add, destroy, edit albums
+username: admin  
+password:  1234  
+
 Build history  
 03/16/2017  
 *	Revise user to users
