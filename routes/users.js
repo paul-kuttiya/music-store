@@ -79,4 +79,9 @@ router.post("/logout", function(req, res) {
   res.sendStatus(200);
 });
 
+router.get('/checkout', function(req, res) {
+	//add cart data when refresh
+	res.render("index", {albums: Albums.get()});
+});
+
 module.exports = router;

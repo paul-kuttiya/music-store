@@ -1,7 +1,12 @@
 var CartView = Backbone.View.extend({
   template: App.templates["cart/cart"],
   events: {
-    "click span#remove": "destroy"
+    "click span#remove": "destroy",
+    "click #items a#empty": "empty",
+  },
+  empty: function() {
+    this.collection.trigger("empty");
+    this.render();
   },
   destroy: function(e) {
     var $item = $(e.target),

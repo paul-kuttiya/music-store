@@ -84,7 +84,7 @@ this["JST"]["cart/cart"] = Handlebars.template({"1":function(container,depth0,he
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</ul><p>$"
     + alias4(((helper = (helper = helpers.total || (depth0 != null ? depth0.total : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"total","hash":{},"data":data}) : helper)))
-    + "</p></div>";
+    + "</p><section><a href=\"/users/checkout\" id=\"checkout\">checkout</a><a href=\"#\" id=\"empty\">empty</a></section></div>";
 },"2":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 

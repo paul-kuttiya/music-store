@@ -4,6 +4,7 @@ var router = new (Backbone.Router.extend({
     "albums/edit/:id": App.editAlbum,
     "users/signup": User.signup,
     "users/login": User.login,
+    "users/checkout": User.checkout,
   },
   index: function() {
     App.indexView();

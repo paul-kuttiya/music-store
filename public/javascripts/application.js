@@ -45,13 +45,6 @@ var App = {
     var user = App.user.toJSON();
     localStorage.setItem("user", JSON.stringify(user));
   },
-  // getStorage: function() {
-  //   if (!localStorage.user) {
-  //     return;
-  //   }
-  //   var user = JSON.parse(localStorage.user);
-  //   return user;
-  // },
   checkUser: function() {
     var loggedIn = localStorage.getItem("user"),
         user;
@@ -107,6 +100,9 @@ var User = {
       return this.isLoggedIn().admin;
     }
   },
+  checkout: function() {
+    new LoginView();
+  }
 };
 
 Handlebars.registerHelper('admin', function(options) {

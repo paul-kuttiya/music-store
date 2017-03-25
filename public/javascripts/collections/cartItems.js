@@ -46,6 +46,10 @@ var CartItems = Backbone.Collection.extend({
     this.remove(item);
     this.update();
   },
+  empty: function() {
+    this.reset();
+    this.update();
+  },
   readStorage: function() {
     var stored_cart = JSON.parse(localStorage.getItem("cart"));
     this.reset(stored_cart);
@@ -60,6 +64,7 @@ var CartItems = Backbone.Collection.extend({
   initialize: function() {
     //listen to destroy triggered from view;
     this.on('destroy', this.destroy);
+    this.on('empty', this.empty);
     this.readStorage();
   }
 });
