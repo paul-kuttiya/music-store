@@ -45,13 +45,13 @@ var App = {
     var user = App.user.toJSON();
     localStorage.setItem("user", JSON.stringify(user));
   },
-  getStorage: function() {
-    if (!localStorage.user) {
-      return;
-    }
-    var user = JSON.parse(localStorage.user);
-    return user;
-  },
+  // getStorage: function() {
+  //   if (!localStorage.user) {
+  //     return;
+  //   }
+  //   var user = JSON.parse(localStorage.user);
+  //   return user;
+  // },
   checkUser: function() {
     var loggedIn = localStorage.getItem("user"),
         user;
@@ -94,13 +94,16 @@ var User = {
       router.path("/");
       return;
     }
+    
     new LoginView();
   },
   isLoggedIn: function() {
-    return App.getStorage();
+    var user = new UserModel()
+    
+    return user.info;
   },
   isAdmin: function() {
-    if (this.isLoggedIn() && this.isLoggedIn().admin) {
+    if (this.isLoggedIn()) {
       return this.isLoggedIn().admin;
     }
   },

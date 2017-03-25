@@ -38,7 +38,6 @@ var CartItems = Backbone.Collection.extend({
     this.update();
     //listen by cartView --> re-render
     this.trigger("cart_update");
-    console.log("cart_update");
     //will listen by collectionView(carView) then render
   },
   destroy: function(id) {
