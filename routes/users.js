@@ -4,7 +4,7 @@ var router = require('express').Router(),
 		Albums = require('./albums_module'),
 		Users  = require('./users_module');
 
-//fix back navigation rendering
+//showing data for back navigation rendering
 router.get(['/signup', '/login'], function(req, res, next) {
   res.render('index', { albums: Albums.get() });
 });

@@ -46,3 +46,7 @@ Build history
 03/20  
 *	add cart backbone
 *	refactor user model
+
+03/25
+*	add checkout page
+*	add empty user cart
