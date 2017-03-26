@@ -19,7 +19,7 @@ var path = require('path'),
      fs.writeFileSync(file_path,  JSON.stringify(data));
    },
    findUser: function(user) { 
-     var users = this.getUsers(user),
+     var users = this.getUsers(),
          result = _(users).findWhere({ username: user.username });
 
      return result;

@@ -81,7 +81,8 @@ router.post("/logout", function(req, res) {
 
 router.get('/checkout', function(req, res) {
 	//add cart data when refresh
-	res.render("index", {albums: Albums.get()});
+	var cart = req.session.user.cart;
+	res.render("checkout", {albums: Albums.get(), cart: cart});
 });
 
 module.exports = router;
