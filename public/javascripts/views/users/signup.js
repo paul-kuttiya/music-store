@@ -4,7 +4,7 @@ var SignupView = Backbone.View.extend({
     id: "signup"
   },
   events: {
-    "click a#signup": "signup",
+    "submit": "signup",
   },
   signup: function(e) {
     var $f = this.$('form'),

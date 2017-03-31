@@ -7,7 +7,7 @@
           <label for="date">Date</label>
         </dt>
         <dd>
-          <input id="date" name="date" type="date" value="{{date}}" required/>
+          <input id="date" name="date" type="text" value="{{date}}" required/>
         </dd>
         <dt>
           <label for="cover">Cover</label>
@@ -19,7 +19,7 @@
           <label for="name">Artist</label>
         </dt>
         <dd>
-          <input id="name" name="name" type="text" placeholder="artist name" value="{{name}}" required/>
+          <input id="artist" name="artist" type="text" placeholder="artist name" value="{{artist}}" required/>
         </dd>
         <dt>
           <label for="title">Title</label>
@@ -36,7 +36,7 @@
       </dl>
     </fieldset>
     <fieldset class="actions">
-      <a href="/" class="button" id="update">Update</a>
+      <input id="update" class="button" type="submit" name="update" value="update">
       <a href="/" class="button" id="cancel">Cancel</a>
     </fieldset>
   </form>

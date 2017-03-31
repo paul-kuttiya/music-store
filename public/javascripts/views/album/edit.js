@@ -2,7 +2,7 @@ var EditAlbumView = Backbone.View.extend({
   template: App.templates["album/edit"],
   events: {
     "click a#cancel": "cancel",
-    "click a#update": "update",
+    "submit": "update",
   },
   update: function() {
     var $f = this.$('form');
@@ -25,6 +25,7 @@ var EditAlbumView = Backbone.View.extend({
         model = App.albums.findWhere({ id: id });
         //no need to pass id since update for the same id;
         model.set(update_album);
+        router.path("/");
       },
     })
   },

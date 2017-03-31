@@ -1,7 +1,7 @@
 var LoginView = Backbone.View.extend({
   template: App.templates["user/login"],
   events: {
-    "click input#login": "login",
+    "submit": "login",
   },
   login: function(e) {
     var $f = $(e.target).closest('form');

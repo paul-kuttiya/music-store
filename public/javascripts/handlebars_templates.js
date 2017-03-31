@@ -19,7 +19,7 @@ this["JST"]["album/album"] = Handlebars.template({"1":function(container,depth0,
     + "</p><img src=\""
     + alias4(((helper = (helper = helpers.cover || (depth0 != null ? depth0.cover : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"cover","hash":{},"data":data}) : helper)))
     + "\" alt=\"cover\"><h3>"
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.artist || (depth0 != null ? depth0.artist : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist","hash":{},"data":data}) : helper)))
     + "</h3><h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h2><p>$"
@@ -34,17 +34,17 @@ this["JST"]["album/edit"] = Handlebars.template({"1":function(container,depth0,h
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h1><form action=\"/albums/edit/"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\" method=\"put\"><fieldset><dl><dt><label for=\"date\">Date</label></dt><dd><input id=\"date\" name=\"date\" type=\"date\" value=\""
+    + "\" method=\"put\"><fieldset><dl><dt><label for=\"date\">Date</label></dt><dd><input id=\"date\" name=\"date\" type=\"text\" value=\""
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
-    + "\" /></dd><dt><label for=\"cover\">Cover</label></dt><dd><input id=\"cover\" name=\"cover\" type=\"url\" placeholder=\"cover link\" value=\""
+    + "\" required/></dd><dt><label for=\"cover\">Cover</label></dt><dd><input id=\"cover\" name=\"cover\" type=\"url\" placeholder=\"cover link\" value=\""
     + alias4(((helper = (helper = helpers.cover || (depth0 != null ? depth0.cover : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"cover","hash":{},"data":data}) : helper)))
-    + "\" /></dd><dt><label for=\"name\">Artist</label></dt><dd><input id=\"name\" name=\"name\" type=\"text\" placeholder=\"artist name\" value=\""
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
-    + "\" /></dd><dt><label for=\"title\">Title</label></dt><dd><input id=\"title\" name=\"title\" type=\"text\" placeholder=\"album title\" value=\""
+    + "\" /></dd><dt><label for=\"name\">Artist</label></dt><dd><input id=\"artist\" name=\"artist\" type=\"text\" placeholder=\"artist name\" value=\""
+    + alias4(((helper = (helper = helpers.artist || (depth0 != null ? depth0.artist : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist","hash":{},"data":data}) : helper)))
+    + "\" required/></dd><dt><label for=\"title\">Title</label></dt><dd><input id=\"title\" name=\"title\" type=\"text\" placeholder=\"album title\" value=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "\" /></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\" value=\""
+    + "\" required/></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\" value=\""
     + alias4(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data}) : helper)))
-    + "\" /></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"/\" class=\"button\" id=\"update\">Update</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
+    + "\" required/></dd></dl></fieldset><fieldset class=\"actions\"><input id=\"update\" class=\"button\" type=\"submit\" name=\"update\" value=\"update\"><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
 },"3":function(container,depth0,helpers,partials,data) {
     return "<h1>There is no such page</h1>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -60,7 +60,7 @@ this["JST"]["album/edit"] = Handlebars.template({"1":function(container,depth0,h
 },"useData":true});
 
 this["JST"]["album/new"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "<h1>Add Album</h1><form action=\"/albums\" method=\"post\"><fieldset><dl><dt><label for=\"date\">Date</label></dt><dd><input id=\"date\" name=\"date\" type=\"date\"/></dd><dt><label for=\"cover\">Cover</label></dt><dd><input id=\"cover\" name=\"cover\" type=\"url\" placeholder=\"cover link\"/></dd><dt><label for=\"name\">Artist</label></dt><dd><input id=\"name\" name=\"name\" type=\"text\" placeholder=\"artist name\"/></dd><dt><label for=\"title\">Title</label></dt><dd><input id=\"title\" name=\"title\" type=\"text\" placeholder=\"album title\"/></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\"/></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"/\" class=\"button\" id=\"submit\">Create</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
+    return "<h1>Add Album</h1><form action=\"/albums\" method=\"post\"><fieldset><dl><dt><label for=\"date\">Date</label></dt><dd><input id=\"date\" name=\"date\" type=\"date\" required/></dd><dt><label for=\"cover\">Cover</label></dt><dd><input id=\"cover\" name=\"cover\" type=\"url\" placeholder=\"cover link\"/></dd><dt><label for=\"artist\">Artist</label></dt><dd><input id=\"artist\" name=\"artist\" type=\"text\" placeholder=\"artist name\" required/></dd><dt><label for=\"title\">Title</label></dt><dd><input id=\"title\" name=\"title\" type=\"text\" placeholder=\"album title\" required/></dd><dt><label for=\"price\">Price</label></dt><dd><input id=\"price\" name=\"price\" type=\"text\" placeholder=\"album price\" required/></dd></dl></fieldset><fieldset class=\"actions\"><input id=\"create\" class=\"button\" type=\"submit\" name=\"create\" value=\"Create\"><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset></form>";
 },"3":function(container,depth0,helpers,partials,data) {
     return "<h1>There is no such page</h1>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -84,7 +84,7 @@ this["JST"]["cart/cart"] = Handlebars.template({"1":function(container,depth0,he
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</ul><p>$"
     + alias4(((helper = (helper = helpers.total || (depth0 != null ? depth0.total : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"total","hash":{},"data":data}) : helper)))
-    + "</p><section><a href=\"/users/checkout\" id=\"checkout\">checkout</a><a href=\"#\" id=\"empty\">empty</a></section></div>";
+    + "</p><section><a href=\"#\" id=\"empty\">empty</a></section></div>";
 },"2":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
@@ -117,11 +117,11 @@ this["JST"]["index"] = Handlebars.template({"1":function(container,depth0,helper
 },"useData":true});
 
 this["JST"]["user/login"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Log in</h1><form action=\"/users/login\" method=\"post\"><fieldset><dl><dt><label for=\"email\">Username</label></dt><dd><input id=\"username\" type=\"text\" name=\"username\" placeholder=\"Username\" required><input type=\"submit\" hidden></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"password\" name=\"password\" placeholder=\"Password\" required><input type=\"submit\" hidden></dd></dl></fieldset><fieldset class=\"actions\"><input id=\"login\" class=\"button\" type=\"submit\" name=\"login\" value=\"login\"><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Have no account?</h3><fieldset class=\"actions\"><a href=\"/users/signup\" class=\"button\" id=\"signup\">Sign Up</a> </fieldset></form>";
+    return "<h1>Log in</h1><form action=\"/users/login\" method=\"post\"><fieldset><dl><dt><label for=\"username\">Username</label></dt><dd><input id=\"username\" type=\"text\" name=\"username\" placeholder=\"Username\" required><input type=\"submit\" hidden></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"password\" name=\"password\" placeholder=\"Password\" required><input type=\"submit\" hidden></dd></dl></fieldset><fieldset class=\"actions\"><input id=\"login\" class=\"button\" type=\"submit\" name=\"login\" value=\"login\"><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Have no account?</h3><fieldset class=\"actions\"><a href=\"/users/signup\" class=\"button\" id=\"signup\">Sign Up</a> </fieldset></form>";
 },"useData":true});
 
 this["JST"]["user/signup"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Sign Up</h1><form action=\"/users/signup\" method=\"post\"><fieldset><dl><dt><label for=\"username\">Username</label></dt><dd><input id=\"username\" type=\"text\" name=\"username\" placeholder=\"Username\" required></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"password\" name=\"password\" placeholder=\"Password\" required></dd></dl></fieldset><fieldset class=\"actions\"><a href=\"#\" class=\"button\" id=\"signup\">Sign Up</a><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Already have an account?</h3><fieldset class=\"actions\"><a href=\"/users/login\" class=\"button\" id=\"login\">Login</a> </fieldset></form>";
+    return "<h1>Sign Up</h1><form action=\"/users/signup\" method=\"post\"><fieldset><dl><dt><label for=\"username\">Username</label></dt><dd><input id=\"username\" type=\"text\" name=\"username\" placeholder=\"Username\" required><input type=\"submit\" hidden></dd><dt><label for=\"password\">Password</label></dt><dd><input id=\"password\" type=\"password\" name=\"password\" placeholder=\"Password\" required><input type=\"submit\" hidden></dd></dl></fieldset><fieldset class=\"actions\"><input id=\"signup\" class=\"button\" type=\"submit\" name=\"signup\" value=\"signup\"><a href=\"/\" class=\"button\" id=\"cancel\">Cancel</a></fieldset><h3>Already have an account?</h3><fieldset class=\"actions\"><a href=\"/users/login\" class=\"button\" id=\"login\">Login</a> </fieldset></form>";
 },"useData":true});
 
 this["JST"]["user/user"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
