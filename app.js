@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //register index route as middleware for app
 app.use('/', index);
 //register albums route as middleware for app
-//prepath is /albums
+//prepath is '/albums'
 app.use('/albums', albums);
 app.use('/users', users);
 
