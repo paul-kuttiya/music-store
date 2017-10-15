@@ -1,0 +1,46 @@
+{{#admin}}
+  <h1>Edit Album: {{title}}</h1>
+  <form action="/albums/edit/{{id}}" method="put">
+    <fieldset>
+      <dl>
+        <dt>
+          <label for="date">Date</label>
+        </dt>
+        <dd>
+          <input id="date" name="date" type="text" value="{{date}}" required/>
+        </dd>
+        <dt>
+          <label for="cover">Cover</label>
+        </dt>
+        <dd>
+          <input id="cover" name="cover" type="url" placeholder="cover link" value="{{cover}}" />
+        </dd>
+        <dt>
+          <label for="name">Artist</label>
+        </dt>
+        <dd>
+          <input id="artist" name="artist" type="text" placeholder="artist name" value="{{artist}}" required/>
+        </dd>
+        <dt>
+          <label for="title">Title</label>
+        </dt>
+        <dd>
+          <input id="title" name="title" type="text" placeholder="album title" value="{{title}}" required/>
+        </dd>
+        <dt>
+          <label for="price">Price</label>
+        </dt>
+        <dd>
+          <input id="price" name="price" type="text" placeholder="album price" value="{{price}}" required/>
+        </dd>
+      </dl>
+    </fieldset>
+    <fieldset class="actions">
+      <input id="update" class="button" type="submit" name="update" value="update">
+      <a href="/" class="button" id="cancel">Cancel</a>
+    </fieldset>
+  </form>
+{{/admin}}
+{{#notAdmin}}
+  <h1>There is no such page</h1>
+{{/notAdmin}}
